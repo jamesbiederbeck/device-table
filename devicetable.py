@@ -14,6 +14,12 @@ warnings.filterwarnings(
 app = Flask(__name__)
 
 @app.route("/")
+def main():
+    getHostNamesFromRouter():
+    #only return json string if we're running in flask
+    if "scan" not in sys.argv:
+        return jsonify(hosts)
+
 def getHostNamesFromRouter():
     session = HTMLSession()
     r = session.get('https://10.0.0.1', verify=False)
@@ -25,7 +31,11 @@ def getHostNamesFromRouter():
         hosts.append(host)
     print(f"Found {len(hosts)} hosts")
     pprint(hosts)
-    return jsonify(hosts)
+    return hosts
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    if "scan" in sys.argv:
+        getHostNamesFromRouter()
+    else:
+        app.run(debug=True)
+    

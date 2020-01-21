@@ -1,7 +1,8 @@
+import sys
+import warnings
+from pprint import pprint
 from requests_html import HTMLSession
 import bs4
-from pprint import pprint
-
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)

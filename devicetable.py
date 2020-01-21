@@ -12,7 +12,7 @@ def getHostNamesFromRouter():
     r = session.get('https://10.0.0.1', verify=False)
     foo = r.html.xpath('//*[@id="internet-usage"]/table')[0]
     hosts = []
-    for row in foo.xpath("//tr"):
+    for row in foo.xpath("//tr")[1:]: #skip header
         host = {}
         host["host_name"],host["mac_address"],host["connection"] = row.text.splitlines()
         hosts.append(host)

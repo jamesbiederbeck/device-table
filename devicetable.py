@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    getHostNamesFromRouter():
+    getHostNamesFromRouter()
     #only return json string if we're running in flask
     if "scan" not in sys.argv:
         return jsonify(hosts)

@@ -5,6 +5,12 @@ from requests_html import HTMLSession
 import bs4
 from flask import Flask, render_template, request, jsonify
 
+#todo add cert verification outside requests
+warnings.filterwarnings(
+        'ignore',
+        message="Unverified HTTPS request is being made. Adding certificate verification is strongly advised."
+                        )
+
 app = Flask(__name__)
 
 @app.route("/")

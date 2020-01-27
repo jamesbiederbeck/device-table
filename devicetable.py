@@ -37,5 +37,5 @@ if __name__ == "__main__":
     if "scan" in sys.argv:
         getHostNamesFromRouter()
     else:
-        app.run(debug=True)
+        app.run(host="0.0.0.0")
     
